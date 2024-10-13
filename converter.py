@@ -7,6 +7,8 @@ def convert():
     input_dir = "./input"
     output_path = "./output"
     for file_name in os.listdir(input_dir):
+        if file_name == ".DS_Store":
+            continue
         image = Image.open(f"{input_dir}/{file_name}")
         pdf_bytes = img2pdf.convert(image.filename)
         filename = str(image.filename)[(str(image.filename).rfind("/")) + 1::]
